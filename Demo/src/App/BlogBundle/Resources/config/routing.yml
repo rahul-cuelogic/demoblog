@@ -17,7 +17,7 @@ app_blog_new:
     path:     /blog/new
     defaults: { _controller: AppBlogBundle:Blog:new }
 app_blog_add:
-    path:     /blog/new
- 	requirements:
+    pattern: /blog/new
+    defaults: { _controller: AppBlogBundle:Blog:add }
+    requirements:
         _method:  POST
-    defaults: { _controller: AppBlogBundle:Blog:add }    
