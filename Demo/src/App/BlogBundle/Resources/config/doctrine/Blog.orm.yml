@@ -1,0 +1,63 @@
+App\BlogBundle\Entity\Blog:
+    type: entity
+    repositoryClass: App\BlogBundle\Repository\BlogRepository
+    table: blog
+    indexes:
+        author_idx:
+            columns:
+                - author
+        blogstatus:
+            columns:
+                - status
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        content:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        createdon:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: createdOn
+        updatedon:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updatedOn
+    manyToOne:
+        status:
+            targetEntity: Blogstatus
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                status:
+                    referencedColumnName: id
+            orphanRemoval: false
+        author:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                author:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

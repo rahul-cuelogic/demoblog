@@ -1,0 +1,26 @@
+{% extends 'AppBlogBundle::layout.html.twig' %}
+
+{% block body %}
+	<p class="continue"><a href="#">Add New Blog</a></p>
+   {% for blog in blogs %}
+        <article class="blog">
+            <div class="date"><time datetime="{{ blog.getCreatedon()|date('c') }}">{{ blog.getCreatedon()|date('l, F j, Y') }}</time></div>
+            <header>
+                <h2><a href="{{ path('app_blog_show', { 'id': blog.id }) }}">{{ blog.title }}</a></h2>
+            </header>
+
+            <div class="snippet">
+                <p>{{ blog.content(5) }}</p>
+                <p class="continue"><a href="{{ path('app_blog_show', { 'id': blog.id }) }}">Continue reading...</a></p>
+            </div>
+
+            <footer class="meta">
+                <p>Comments: -</p>
+                <p>Posted by <span class="highlight"># {{ blog.getAuthor().getFirstName()}}</span> at {{ blog.getCreatedon()|date('h:iA') }}</p>
+                
+            </footer>
+        </article>
+    {% else %}
+        <p>There are no blog entries for symblog</p>
+    {% endfor %}
+{% endblock %}

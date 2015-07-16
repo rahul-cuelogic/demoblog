@@ -1,0 +1,21 @@
+{% extends 'AppBlogBundle::layout.html.twig' %}
+
+{% block title %} Add Blog{% endblock %}
+
+{% block body %}
+    <article class="blog">
+       
+        <section class="comments" id="comments">
+        	
+        	<h3>Add Blog</h3>
+        		
+        		<form name="newComment" id="newComment" method="post" class="form-horizontal" action="{{ path('app_blog_add')}}#">
+                    <div>Blog Title:</div><div><input type = "text" value= "" name="blogTitle"></div>
+        			<div>Blog Text:</div><div><textarea  rows="5" cols="50" name = 'blogText'> </textarea></div>
+        		
+        			<input type="submit">
+
+        		</form>
+    	</section>
+    </article>
+{% endblock %}

@@ -1,0 +1,14 @@
+app_blog:
+    resource: "@AppBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# app:
+#     resource: "@AppBundle/Controller/"
+#     type:     annotation
+
+login_route:
+    path:     /login
+    defaults: { _controller: AppBlogBundle:Security:login }
+
+login_check:
+    path: /login_check

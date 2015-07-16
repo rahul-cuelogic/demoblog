@@ -1,0 +1,65 @@
+App\BlogBundle\Entity\Comment:
+    type: entity
+    repositoryClass: App\BlogBundle\Repository\CommentRepository
+    table: comment
+    indexes:
+        postId_Idx:
+            columns:
+                - postId
+        authorIdx:
+            columns:
+                - author
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        text:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        createdon:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+            column: createdOn
+        updatedon:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: '0000-00-00 00:00:00'
+            column: updatedOn
+        isactive:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: isActive
+    manyToOne:
+        postid:
+            targetEntity: Blog
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                postId:
+                    referencedColumnName: id
+            orphanRemoval: false
+        author:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                author:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

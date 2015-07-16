@@ -1,0 +1,8 @@
+{% extends 'AppBlogBundle::layout.html.twig' %}
+
+{% block title %}Add Comment{% endblock%}
+
+{% block body %}
+    <h1>Add comment for blog post "{{ comment.postid.title }}"</h1>
+    {% include 'AppBlogBundle:Comment:form.html.twig' with { 'form': form } %}
+{% endblock %}

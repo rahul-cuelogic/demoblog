@@ -1,0 +1,23 @@
+app_blog_homepage:
+    path:     /
+    defaults: { _controller: AppBlogBundle:HomePage:index }
+app_blog_show:
+    pattern:  /{id}
+    defaults: { _controller: AppBlogBundle:Blog:show }
+    requirements:
+        _method:  GET
+        id: \d+
+app_blog_comment_create:
+    pattern:  /comment/{blogId}
+    defaults: { _controller: AppBlogBundle:Comment:create  }
+    requirements:
+        _method:  POST
+        blog_id: \d+
+app_blog_new:
+    path:     /blog/new
+    defaults: { _controller: AppBlogBundle:Blog:new }
+app_blog_add:
+    path:     /blog/new
+ 	requirements:
+        _method:  POST
+    defaults: { _controller: AppBlogBundle:Blog:add }    

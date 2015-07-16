@@ -1,0 +1,50 @@
+App\BlogBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        firstname:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: firstName
+        lastname:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: lastName
+        email:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        role:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        createdon:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: createdOn
+        updatedon:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updatedOn
+    lifecycleCallbacks: {  }
