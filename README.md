@@ -3,6 +3,7 @@ Sample blog application
 Please refer composer.json for the correct versions of the symfony components being used.
 
 Steps to set up application:
+
 1) You can set up app by downloading the source code
 2) Once you have the source code available on your system, set the appropriate permissions to following directories
 
