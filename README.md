@@ -1,23 +1,23 @@
-# demoblog
-this is a demo blog
+Sample blog application
 
-Stack:
-Symfony 2.7
-Twig as template engine
-Doctrine 2.4 as ORM
+Please refer composer.json for the correct versions of the symfony components being used.
 
-You can use the composer to install the dependecny for this demo
-create following dir under "app/cache" dir and set 777 permission to these dir.
-dev
-prod
-test
+Steps to set up application:
+1) You can set up app by downloading the source code
+2) Once you have the source code available on your system, set the appropriate permissions to following directories
 
-These three are cache dir
+ i] app/cache 
+ ii] app/logs
 
-in dev mode access URL will be:
+set 777 permission to above mentioned directories
 
-domain.com/app_dev.php/
+3) Edit the app/config/parameters.yml file to set the credentials for your database
 
-it will load the homepage
+4) To run the application in development mode use use the URL as:
+ www.yourdomain.com/app_dev.php/
 
-I have also created a data fixture for default users  and a default blog you can run this fixture once app is deployed.
+5) To run the application in production mode use use the URL as:
+ www.yourdomain.com/app.php/
+
+6) Once you are done with setting up the permissions, run the load fixtures command to get the default record in database.
+  
