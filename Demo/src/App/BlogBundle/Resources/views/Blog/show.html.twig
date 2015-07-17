@@ -1,1 +1,30 @@
-fd
+{% extends 'AppBlogBundle::layout.html.twig' %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block body %}
+    <article class="blog">
+        <header>
+            <div class="date"><time datetime="{{ blog.createdon|date('c') }}">{{ blog.createdon|date('l, F j, Y') }}</time></div>
+            <h2>{{ blog.title }}</h2>
+        </header>
+       
+        <div>
+            <p>{{ blog.content }}</p>
+        </div>
+        <section class="comments" id="comments">
+        	<section class="previous-comments">
+            	<h3>Comments</h3>
+            	{% include 'AppBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+        	</section>
+        	<h3>Add Comment</h3>
+        		{# {% render 'AppBlogBundle:Comment:new' with { 'blogId': blog.id } %} #}
+        		<form name="newComment" id="newComment" method="post" class="form-horizontal" action="{{ path('app_blog_comment_create', {'blogId': blog.id }) }}">
+        			<textarea  rows="5" cols="50" name = 'commentText'> </textarea>
+        			<input type = "hidden" value= "{{blog.id}}" name="blogId">
+        			<input type="submit">
+
+        		</form>
+    	</section>
+    </article>
+{% endblock %}
